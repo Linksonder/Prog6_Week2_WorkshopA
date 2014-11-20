@@ -12,7 +12,7 @@ namespace MusicCollectionMVVM
     {
         ISongRepository songRepository;
 
-        public SongViewModel Song { get; set; }
+        public SongViewModel SongViewModel { get; set; }
 
         public ObservableCollection<SongViewModel> Songs { get; set; }
 
@@ -23,15 +23,22 @@ namespace MusicCollectionMVVM
             songRepository = new DummySongRepository();
             var songList = songRepository.ToList().Select(s => new SongViewModel(s));
 
-            Song = new SongViewModel();
+            SongViewModel = new SongViewModel();
             Songs = new ObservableCollection<SongViewModel>(songList);
-            AddSong = new RelayCommand(AddNewSong);
+
+
+            AddSong = new RelayCommand(AddNewSong, CanAddSong);
         }
 
 
         private void AddNewSong(object parameter)
         {
-            Songs.Add(Song);
+            Songs.Add(SongViewModel);
+        }
+
+        private bool CanAddSong(object parameter)
+        {
+            return SongViewModel.Artist != null;
         }
     }
 }

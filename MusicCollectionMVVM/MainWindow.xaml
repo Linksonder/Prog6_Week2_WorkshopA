@@ -10,8 +10,8 @@
     </Window.DataContext>
     <StackPanel>
         <TextBlock Text="Music Collection" FontSize="28" />
-        
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Songs}" Margin="5">
+
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Songs}" Margin="5" SelectedItem="{Binding Song}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Artist" Binding="{Binding Artist}" Width="300" />
