@@ -27,18 +27,13 @@ namespace MusicCollectionMVVM
             Songs = new ObservableCollection<SongViewModel>(songList);
 
 
-            AddSong = new RelayCommand(AddNewSong, CanAddSong);
+            AddSong = new RelayCommand(AddNewSong);
         }
 
 
         private void AddNewSong(object parameter)
         {
             Songs.Add(SongViewModel);
-        }
-
-        private bool CanAddSong(object parameter)
-        {
-            return SongViewModel.Artist != null;
         }
     }
 }

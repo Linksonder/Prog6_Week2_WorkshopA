@@ -10,17 +10,15 @@ namespace MusicCollectionMVVM
     public class RelayCommand : ICommand
     {
         private Action<object> action;
-        private Func<object, bool> canExecute;
 
-        public RelayCommand(Action<object> action, Func<object, bool> canExecute)
+        public RelayCommand(Action<object> action)
         {
             this.action = action;
-            this.canExecute = canExecute;
         }
 
         public bool CanExecute(object parameter)
         {
-            return  this.canExecute(parameter);
+            return true;
         }
 
         public void Execute(object parameter)
