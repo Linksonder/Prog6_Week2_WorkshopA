@@ -33,8 +33,13 @@ namespace MusicCollectionMVVM
 
         private void AddNewSong(object parameter)
         {
-            Songs.Add(SongViewModel);
-            SongViewModel = new SongViewModel();
+            var svm = new SongViewModel();
+            svm.Artist = SongViewModel.Artist;
+            svm.Id = SongViewModel.Id;
+            svm.Title = SongViewModel.Title;
+
+            Songs.Add(svm);
+            
         }
     }
 }
