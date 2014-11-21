@@ -34,6 +34,7 @@ namespace MusicCollectionMVVM
         private void AddNewSong(object parameter)
         {
             Songs.Add(SongViewModel);
+            SongViewModel = new SongViewModel();
         }
     }
 }
