@@ -31,9 +31,11 @@ namespace MusicCollectionMVVM
         }
 
 
+
         private void AddNewSong(object parameter)
         {
             var svm = new SongViewModel();
+
             svm.Artist = SongViewModel.Artist;
             svm.Id = SongViewModel.Id;
             svm.Title = SongViewModel.Title;
